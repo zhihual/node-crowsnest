@@ -89,7 +89,7 @@ exports.create = (options) ->
 
 	return msgpack.encode [
 		PACKET_VERSION
-		options.severity << options.tag
+		(options.severity << 5) + options.tag
 		options.productKey
 		options.serial
 		options.message

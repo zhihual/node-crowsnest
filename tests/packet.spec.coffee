@@ -145,7 +145,7 @@ describe 'Packet:', ->
 			decoded = msgpack.decode(payload)
 			m.chai.expect(decoded[0]).to.equal(1)
 
-		it 'should compute a severity and tag of 001100000 given 3 and 5', ->
+		it 'should compute a severity and tag of 001100101 given 3 and 5', ->
 			payload = packet.create
 				severity: 3
 				tag: 5
@@ -154,7 +154,7 @@ describe 'Packet:', ->
 				serial: '1234'
 
 			decoded = msgpack.decode(payload)
-			m.chai.expect(decoded[1]).to.equal(parseInt('001100000', 2))
+			m.chai.expect(decoded[1]).to.equal(parseInt('001100101', 2))
 
 		it 'should put the product key as the third item in the array', ->
 			payload = packet.create
