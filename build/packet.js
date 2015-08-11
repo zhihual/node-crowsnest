@@ -91,5 +91,5 @@ exports.create = function(options) {
   if (Buffer.byteLength(options.serial, 'utf8') > 31) {
     throw new Error('Serial byte limit is 31');
   }
-  return msgpack.encode([PACKET_VERSION, options.severity << options.tag, options.productKey, options.serial, options.message]);
+  return msgpack.encode([PACKET_VERSION, (options.severity << 5) + options.tag, options.productKey, options.serial, options.message]);
 };
