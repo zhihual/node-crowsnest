@@ -113,15 +113,15 @@ describe 'Packet:', ->
 					serial: 1234
 			.to.throw('Serial should be a string')
 
-		it 'should throw if serial has more than 31 characters', ->
+		it 'should throw if serial has more than 64 characters', ->
 			m.chai.expect ->
 				packet.create
 					severity: 1
 					tag: 0
 					message: 'Hello World'
 					productKey: '8ygh638f3nn2937t'
-					serial: 'abcdefghijklmnopqrstuvwxyz012345'
-			.to.throw('Serial byte limit is 31')
+					serial: _.str.repeat('12345678', 8) + '0'
+			.to.throw('Serial length limit is 64')
 
 		it 'should encode an array of length 5', ->
 			payload = packet.create

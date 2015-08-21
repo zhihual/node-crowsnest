@@ -84,8 +84,8 @@ exports.create = (options) ->
 	if not _.isString(options.serial)
 		throw new Error('Serial should be a string')
 
-	if Buffer.byteLength(options.serial, 'utf8') > 31
-		throw new Error('Serial byte limit is 31')
+	if options.serial.length > 64
+		throw new Error('Serial length limit is 64')
 
 	return msgpack.encode [
 		PACKET_VERSION
