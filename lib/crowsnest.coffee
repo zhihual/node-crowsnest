@@ -136,6 +136,11 @@ exports.config =
 # 	if (error) throw error;
 # 	console.log(response);
 # });
+#
+# // Or if using promises...
+# cn.alert(cn.severity.DEBUG, 1, 'Hello World').then(function(response) {
+# 	console.log(response);
+# });
 ###
 exports.alert = (severity, tag, message, callback) ->
 	Promise.try ->

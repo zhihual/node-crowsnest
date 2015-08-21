@@ -138,6 +138,11 @@ cn.alert(cn.severity.DEBUG, 1, 'Hello World', function(error, response) {
 	if (error) throw error;
 	console.log(response);
 });
+
+// Or if using promises...
+cn.alert(cn.severity.DEBUG, 1, 'Hello World').then(function(response) {
+	console.log(response);
+});
 ```
 
 Support
